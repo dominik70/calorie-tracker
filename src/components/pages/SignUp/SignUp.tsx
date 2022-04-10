@@ -7,7 +7,7 @@ import { useAuth } from '../../../context/AuthContext';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { Input } from '../../atoms/Input/Input';
-import { ErrorType, Register } from '../../types';
+import { ErrorType, Register } from '../../../types';
 import { loginSchema } from '../../../lib/schemas';
 import { Form, StyledButton } from '../../atoms/Form/Form';
 import { Error } from '../../atoms/Error/Error';
