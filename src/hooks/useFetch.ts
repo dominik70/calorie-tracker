@@ -3,7 +3,7 @@ import { toast } from 'react-toastify';
 
 export const useFetch = <T>(url: string, skip = false) => {
   const [data, setData] = useState<T | null>(null);
-  const [isLoading, setIsLoading] = useState<boolean>(false);
+  const [isLoading, setIsLoading] = useState(false);
   const cache = useRef<{ [key: string]: T }>({});
 
   useEffect(() => {

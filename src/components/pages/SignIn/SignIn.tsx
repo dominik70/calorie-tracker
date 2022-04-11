@@ -12,11 +12,12 @@ import { loginSchema } from '../../../lib/schemas';
 import { Form, StyledButton } from '../../atoms/Form/Form';
 import { Error } from '../../atoms/Error/Error';
 import { SignInfo } from '../SignUp/SignUp.styles';
+import { toast } from 'react-toastify';
 
 export const SignIn = () => {
   const navigate = useNavigate();
   const { user, signIn } = useAuth();
-  const [isLoading, setIsLoading] = useState<boolean>(false);
+  const [isLoading, setIsLoading] = useState(false);
 
   const {
     register,
@@ -35,7 +36,7 @@ export const SignIn = () => {
       navigate('/');
     } catch (error) {
       const err = error as ErrorType;
-      console.log(err.message);
+      toast.error(err.message);
       setIsLoading(false);
     }
   };

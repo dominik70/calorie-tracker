@@ -1,4 +1,5 @@
 import * as yup from 'yup';
+import { MEAL_NAMES } from '../utils/constants';
 
 export const registerSchema = yup.object().shape({
   email: yup.string().email('invalid email format').required(),
@@ -12,4 +13,10 @@ export const registerSchema = yup.object().shape({
 export const loginSchema = yup.object().shape({
   email: yup.string().email('invalid email format').max(40).required(),
   password: yup.string().min(6).max(30).required(),
+});
+
+export const searchCardSchema = yup.object().shape({
+  quantity: yup.number().typeError('quantity must be a number').min(1).max(15000),
+  meal: yup.mixed().oneOf(MEAL_NAMES),
+  date: yup.date().max(new Date(), 'date must be earlier or equal to today'),
 });

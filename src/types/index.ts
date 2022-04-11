@@ -1,3 +1,5 @@
+import { FieldValue } from '@firebase/firestore-types';
+
 export interface Login {
   email: string;
   password: string;
@@ -12,6 +14,8 @@ export interface Register {
 export interface ErrorType {
   message: string;
 }
+
+export type NutrientsNames = 'kcal' | 'carb' | 'protein' | 'fat';
 
 export interface Nutrient {
   name: 'kcal' | 'carb' | 'protein' | 'fat';
@@ -42,4 +46,16 @@ export interface NutrientsGoal {
   protein: number;
   fat: number;
   carb: number;
+}
+
+export interface MealCardFood extends Food {
+  quantity: number;
+  mealName: string;
+  createdAt: FieldValue;
+}
+
+export interface SearchCardFood {
+  mealName: string;
+  date: string;
+  quantity: number;
 }

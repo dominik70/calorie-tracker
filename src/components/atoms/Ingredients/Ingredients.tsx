@@ -7,7 +7,7 @@ interface Props {
 }
 
 export const Ingredients = ({ content }: Props) => {
-  const [showIngredients, setShowIngredients] = useState<boolean>(false);
+  const [showIngredients, setShowIngredients] = useState(false);
 
   const handleShowIngredients = () => {
     setShowIngredients((prevState) => !prevState);
@@ -19,12 +19,8 @@ export const Ingredients = ({ content }: Props) => {
       {content.length > 85 ? (
         <>
           <span>{!showIngredients ? content.slice(0, 80) + '...' : content}</span>
-          <ShowButton type="button" title="Show all ingredients" onClick={handleShowIngredients}>
-            {showIngredients ? (
-              <Icon name="top-arrow" size={20} srText="show all ingredients" />
-            ) : (
-              <Icon name="down-arrow" size={20} srText="hide ingredients" />
-            )}
+          <ShowButton type='button' title='Show all ingredients' onClick={handleShowIngredients}>
+            {showIngredients ? <Icon name='top-arrow' size={20} srText='show all ingredients' /> : <Icon name='down-arrow' size={20} srText='hide ingredients' />}
           </ShowButton>
         </>
       ) : (

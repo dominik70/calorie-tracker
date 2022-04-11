@@ -7,11 +7,12 @@ import { NavLinks } from '../../molecules/NavLinks/NavLinks';
 import { useAuth } from '../../../context/AuthContext';
 import { useOuterClick } from '../../../hooks/useOuterClick';
 import { useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
 
 export const Nav = () => {
   const { user, signOut } = useAuth();
   const navigate = useNavigate();
-  const [isOpen, setIsOpen] = useState<boolean>(false);
+  const [isOpen, setIsOpen] = useState(false);
   const innerRef = useOuterClick(() => setIsOpen(false));
 
   const handleLogout = async () => {
@@ -20,7 +21,7 @@ export const Nav = () => {
       navigate('/sign-in');
       setIsOpen(false);
     } catch {
-      console.log('failed to log out');
+      toast.error('failed to log out');
     }
   };
 

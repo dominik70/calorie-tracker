@@ -8,6 +8,10 @@ import { Home } from './components/pages/Home/Home';
 import { SignIn } from './components/pages/SignIn/SignIn';
 import { SignUp } from './components/pages/SignUp/SignUp';
 import { Search } from './components/pages/Search/Search';
+import { FoodProvider } from './context/FoodContext';
+import { DietHistory } from './components/pages/DietHistory/DietHistory';
+import { DateProvider } from './context/DateContext';
+import { ToastsContainer } from './components/atoms/ToastsContainer/ToastsContainer';
 
 export const App = () => {
   return (
@@ -15,13 +19,19 @@ export const App = () => {
       <GlobalStyle />
       <AuthProvider>
         <ThemeProvider theme={theme}>
-          <Nav />
-          <Routes>
-            <Route path='/' element={<Home />} />
-            <Route path='/search' element={<Search />} />
-            <Route path='/sign-in' element={<SignIn />} />
-            <Route path='/sign-up' element={<SignUp />} />
-          </Routes>
+          <DateProvider>
+            <FoodProvider>
+              <Nav />
+              <Routes>
+                <Route path='/' element={<Home />} />
+                <Route path='/search' element={<Search />} />
+                <Route path='/sign-in' element={<SignIn />} />
+                <Route path='/sign-up' element={<SignUp />} />
+                <Route path='/diet-history' element={<DietHistory />} />
+              </Routes>
+              <ToastsContainer />
+            </FoodProvider>
+          </DateProvider>
         </ThemeProvider>
       </AuthProvider>
     </Router>
