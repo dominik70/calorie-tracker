@@ -8,6 +8,7 @@ import { Nutrients } from '../../atoms/Nutrients/Nutrients';
 import { MealCardFood } from '../../../types';
 import { toast } from 'react-toastify';
 import { useFood } from '../../../context/FoodContext';
+import { LoadingSpinner } from '../../atoms/LoadingSpinner/LoadingSpinner';
 
 interface Props {
   food: MealCardFood;
@@ -53,7 +54,7 @@ export const MealCard = ({ food }: Props) => {
       <Actions>
         <Input label='quantity (g)' type='number' id={`${food.id}-${food.mealName}-quantity`} ref={quantityRef} defaultValue={food.quantity} />
         <Button type='button' variant='contained' size='s' onClick={handleUpdateFood} disabled={isLoading}>
-          {!isLoading ? 'Set quantity' : <p>Loading....</p>}
+          {!isLoading ? 'Set quantity' : <LoadingSpinner size={25} />}
         </Button>
         <Button type='button' variant='outlined' size='s' onClick={handleDeleteFood}>
           Delete

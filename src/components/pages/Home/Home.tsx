@@ -25,11 +25,11 @@ export const Home = () => {
         {!user && (
           <>
             <ButtonContainer>
-              <Button variant='contained' onClick={() => navigate('/login')}>
-                Log in
+              <Button variant='contained' onClick={() => navigate('/sign-in')}>
+                Sign in
               </Button>
-              <Button variant='outlined' onClick={() => navigate('/register')}>
-                Register
+              <Button variant='outlined' onClick={() => navigate('/sign-up')}>
+                Sign up
               </Button>
             </ButtonContainer>
             <p>or</p>

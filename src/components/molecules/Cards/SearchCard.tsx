@@ -15,6 +15,7 @@ import { toast } from 'react-toastify';
 import { searchCardSchema } from '../../../lib/schemas';
 import { serverTimestamp } from 'firebase/firestore';
 import { Error } from '../../atoms/Error/Error';
+import { LoadingSpinner } from '../../atoms/LoadingSpinner/LoadingSpinner';
 
 interface Props {
   food: Food;
@@ -64,7 +65,7 @@ export const SearchCard = ({ food }: Props) => {
         <Select label='meal' values={MEAL_NAMES} id={`${food.id}-meal`} {...register('mealName')} />
         <Input label='date' type='date' id={`${food.id}-date`} {...register('date')} max={getInputDateFormat()} />
         <Button type='button' variant='contained' size='s' onClick={handleSubmit(handleAddFood)} disabled={isLoading}>
-          {!isLoading ? 'Set' : <p>Loading...</p>}
+          {!isLoading ? 'Set' : <LoadingSpinner size={25} />}
         </Button>
       </Actions>
       <Error errors={errors} />

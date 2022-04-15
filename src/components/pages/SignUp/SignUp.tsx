@@ -13,6 +13,7 @@ import { Form, StyledButton } from '../../atoms/Form/Form';
 import { Error } from '../../atoms/Error/Error';
 import { SignInfo } from './SignUp.styles';
 import { toast } from 'react-toastify';
+import { LoadingSpinner } from '../../atoms/LoadingSpinner/LoadingSpinner';
 
 export const SignUp = () => {
   const navigate = useNavigate();
@@ -60,7 +61,7 @@ export const SignUp = () => {
             <Error errors={errors} />
           </>
         ) : (
-          <p>Loading...</p>
+          <LoadingSpinner />
         )}
       </Form>
       <SignInfo>

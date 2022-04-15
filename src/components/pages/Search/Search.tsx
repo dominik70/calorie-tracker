@@ -11,6 +11,7 @@ import { MIN_QUERY_LENGTH, DEBOUNCE_TIMEOUT } from '../../../utils/constants';
 import { useFetch } from '../../../hooks/useFetch';
 import { useDebounce } from '../../../hooks/useDebounce';
 import { toast } from 'react-toastify';
+import { LoadingSpinner } from '../../atoms/LoadingSpinner/LoadingSpinner';
 
 export const Search = () => {
   const [foodList, setFoodList] = useState<Food[]>([]);
@@ -57,7 +58,7 @@ export const Search = () => {
           ))}
         </CardList>
       ) : (
-        <p>Loading...</p>
+        <LoadingSpinner />
       )}
       {!isLoading && foodList.length > 0 && <Pagination currentPage={currentPage} setCurrentPage={setCurrentPage} totalPages={totalPages} />}
     </Container>

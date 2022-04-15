@@ -7,6 +7,7 @@ import { Meal } from '../../organisms/Meal/Meal';
 import { MEAL_NAMES } from '../../../utils/constants';
 import { useFood } from '../../../context/FoodContext';
 import { Link } from 'react-router-dom';
+import { LoadingSpinner } from '../../atoms/LoadingSpinner/LoadingSpinner';
 
 export const DietHistory = () => {
   const { foodList, isLoading, deleteAllFood } = useFood();
@@ -28,7 +29,7 @@ export const DietHistory = () => {
           )}
         </>
       ) : (
-        <p>Loading...</p>
+        <LoadingSpinner />
       )}
     </Container>
   );
