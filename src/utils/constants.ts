@@ -26,3 +26,13 @@ export const ARROWS = {
   next: 'right-arrow',
   last: 'double-right-arrow',
 };
+export const ACTIVITY = {
+  low: 1.2,
+  moderate: 1.55,
+  high: 1.725,
+};
+export const AIM = {
+  lose: -300,
+  maintain: 0,
+  gain: 300,
+};

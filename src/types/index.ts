@@ -59,3 +59,19 @@ export interface SearchCardFood {
   date: string;
   quantity: number;
 }
+
+export interface NutrientsGoal {
+  kcal: number;
+  protein: number;
+  fat: number;
+  carb: number;
+}
+
+export interface PersonalInfo {
+  weight: number;
+  height: number;
+  age: number;
+  sex: 'male' | 'female';
+  activity: 'low' | 'moderate' | 'high';
+  aim: 'lose' | 'maintain' | 'gain';
+}

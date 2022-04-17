@@ -12,6 +12,8 @@ import { FoodProvider } from './context/FoodContext';
 import { DietHistory } from './components/pages/DietHistory/DietHistory';
 import { DateProvider } from './context/DateContext';
 import { ToastsContainer } from './components/atoms/ToastsContainer/ToastsContainer';
+import { DailyGoalProvider } from './context/DailyGoalContext';
+import { Profile } from './components/pages/Profile/Profile';
 
 export const App = () => {
   return (
@@ -21,15 +23,18 @@ export const App = () => {
         <ThemeProvider theme={theme}>
           <DateProvider>
             <FoodProvider>
-              <Nav />
-              <Routes>
-                <Route path='/' element={<Home />} />
-                <Route path='/search' element={<Search />} />
-                <Route path='/sign-in' element={<SignIn />} />
-                <Route path='/sign-up' element={<SignUp />} />
-                <Route path='/diet-history' element={<DietHistory />} />
-              </Routes>
-              <ToastsContainer />
+              <DailyGoalProvider>
+                <Nav />
+                <Routes>
+                  <Route path='/' element={<Home />} />
+                  <Route path='/search' element={<Search />} />
+                  <Route path='/sign-in' element={<SignIn />} />
+                  <Route path='/sign-up' element={<SignUp />} />
+                  <Route path='/diet-history' element={<DietHistory />} />
+                  <Route path='/profile' element={<Profile />} />
+                </Routes>
+                <ToastsContainer />
+              </DailyGoalProvider>
             </FoodProvider>
           </DateProvider>
         </ThemeProvider>

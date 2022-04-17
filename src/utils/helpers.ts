@@ -1,5 +1,5 @@
-import { API_URL, API_KEY, PAGE_SIZE, NUTRIENTS } from './constants';
-import { ApiFoods, MealCardFood, Nutrient, NutrientsGoal } from '../types';
+import { API_URL, API_KEY, PAGE_SIZE, NUTRIENTS, ACTIVITY, AIM } from './constants';
+import { ApiFoods, MealCardFood, Nutrient, NutrientsGoal, PersonalInfo } from '../types';
 import { format, isEqual, startOfDay, startOfToday } from 'date-fns';
 
 export const getUrl = (query: string, page: number) => {
@@ -59,4 +59,22 @@ export const sumNutrients = (foodList: MealCardFood[]) => {
       value: (nutrient.value / 100) * cur.quantity + acc[i].value,
     }));
   }, NUTRIENTS);
+};
+
+export const getDailyGoal = (PersonalInfo: PersonalInfo): NutrientsGoal => {
+  const { weight, height, age, sex, activity, aim } = PersonalInfo;
+  let kcal;
+
+  if (sex === 'male') {
+    kcal = round(66 + 13.75 * weight + 5 * height - 6.76 * age) * ACTIVITY[activity] + AIM[aim];
+  } else {
+    kcal = round(665 + 9.6 * weight + 1.85 * height - 4.7 * age) * ACTIVITY[activity] + AIM[aim];
+  }
+
+  return {
+    kcal: round(kcal),
+    carb: round((kcal / 4) * 0.4),
+    protein: round((kcal / 4) * 0.3),
+    fat: round((kcal / 9) * 0.3),
+  };
 };
