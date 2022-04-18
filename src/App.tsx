@@ -3,7 +3,7 @@ import { GlobalStyle } from './theme/globalStyles';
 import { Nav } from './components/organisms/Nav/Nav';
 import { ThemeProvider } from 'styled-components';
 import { theme } from './theme/theme';
-import { AuthProvider } from './context/AuthContext';
+import { AuthProvider, useAuth } from './context/AuthContext';
 import { Home } from './components/pages/Home/Home';
 import { SignIn } from './components/pages/SignIn/SignIn';
 import { SignUp } from './components/pages/SignUp/SignUp';
@@ -14,6 +14,7 @@ import { DateProvider } from './context/DateContext';
 import { ToastsContainer } from './components/atoms/ToastsContainer/ToastsContainer';
 import { DailyGoalProvider } from './context/DailyGoalContext';
 import { Profile } from './components/pages/Profile/Profile';
+import { PrivateRoute } from './components/atoms/PrivateRoute/PrivateRoute';
 
 export const App = () => {
   return (
@@ -30,8 +31,10 @@ export const App = () => {
                   <Route path='/search' element={<Search />} />
                   <Route path='/sign-in' element={<SignIn />} />
                   <Route path='/sign-up' element={<SignUp />} />
-                  <Route path='/diet-history' element={<DietHistory />} />
-                  <Route path='/profile' element={<Profile />} />
+                  <Route element={<PrivateRoute />}>
+                    <Route path='/diet-history' element={<DietHistory />} />
+                    <Route path='/profile' element={<Profile />} />
+                  </Route>
                 </Routes>
                 <ToastsContainer />
               </DailyGoalProvider>
