@@ -1,8 +1,9 @@
 export const MENU_PATHS = [
-  { name: 'Search food', path: '/search' },
-  { name: 'Diet history', path: '/diet-history' },
-  { name: 'Profile', path: '/profile' },
+  { name: 'search food', path: '/search' },
+  { name: 'diet history', path: '/diet-history' },
+  { name: 'profile', path: '/profile' },
 ];
+export const PATHS = [...MENU_PATHS, { name: 'sign in', path: '/sign-in' }, { name: 'sign up', path: '/sign-up' }];
 export const MIN_QUERY_LENGTH = 3;
 export const DEBOUNCE_TIMEOUT = 750;
 export const API_URL = 'https://api.nal.usda.gov/fdc/v1/foods/search';

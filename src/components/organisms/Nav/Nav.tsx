@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { StyledNav, Container, SubContainer, Menu, LoggedUser } from './Nav.styles';
 import { Logo } from '../../atoms/Logo/Logo';
 import { Hamburger } from '../../atoms/Hamburger/Hamburger';
@@ -6,14 +6,26 @@ import { Button } from '../../atoms/Button/Button';
 import { NavLinks } from '../../molecules/NavLinks/NavLinks';
 import { useAuth } from '../../../context/AuthContext';
 import { useOuterClick } from '../../../hooks/useOuterClick';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
+import { PATHS } from '../../../utils/constants';
 
 export const Nav = () => {
   const { user, signOut } = useAuth();
+  const { pathname } = useLocation();
   const navigate = useNavigate();
   const [isOpen, setIsOpen] = useState(false);
   const innerRef = useOuterClick(() => setIsOpen(false));
+
+  useEffect(() => {
+    const foundPath = PATHS.find(({ path }) => path === pathname);
+
+    if (foundPath) {
+      document.title = `my calorie - ${foundPath.name}`;
+    } else {
+      document.title = 'my calorie';
+    }
+  }, [pathname]);
 
   const handleLogout = async () => {
     try {

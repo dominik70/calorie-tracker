@@ -3,7 +3,7 @@ import { GlobalStyle } from './theme/globalStyles';
 import { Nav } from './components/organisms/Nav/Nav';
 import { ThemeProvider } from 'styled-components';
 import { theme } from './theme/theme';
-import { AuthProvider, useAuth } from './context/AuthContext';
+import { AuthProvider } from './context/AuthContext';
 import { Home } from './components/pages/Home/Home';
 import { SignIn } from './components/pages/SignIn/SignIn';
 import { SignUp } from './components/pages/SignUp/SignUp';
