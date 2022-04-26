@@ -6,3 +6,7 @@ export const Container = styled(PageContainer)`
   padding-right: 0;
   justify-content: flex-start;
 `;
+
+export const SpinnerContainer = styled.div`
+  margin-top: 100px;
+`;

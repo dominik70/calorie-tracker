@@ -1,4 +1,4 @@
-import { Container, Info } from './DietHistory.styles';
+import { Container, Info, SpinnerContainer } from './DietHistory.styles';
 import { SectionTitle } from '../../atoms/SectionTitle/SectionTitle';
 import { Button } from '../../atoms/Button/Button';
 import { HistoryDate } from '../../molecules/HistoryDate/HistoryDate';
@@ -29,7 +29,9 @@ export const DietHistory = () => {
           )}
         </>
       ) : (
-        <LoadingSpinner />
+        <SpinnerContainer>
+          <LoadingSpinner />
+        </SpinnerContainer>
       )}
     </Container>
   );

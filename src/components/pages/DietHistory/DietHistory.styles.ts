@@ -11,3 +11,7 @@ export const Container = styled(PageContainer)`
 export const Info = styled.p`
   margin-top: 15px;
 `;
+
+export const SpinnerContainer = styled.div`
+  margin-top: 100px;
+`;

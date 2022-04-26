@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Container } from './Search.styles';
+import { Container, SpinnerContainer } from './Search.styles';
 import { SectionTitle } from '../../atoms/SectionTitle/SectionTitle';
 import { CardList } from '../../molecules/Cards/CardList';
 import { SearchBar } from '../../organisms/SearchBar/SearchBar';
@@ -58,7 +58,9 @@ export const Search = () => {
           ))}
         </CardList>
       ) : (
-        <LoadingSpinner />
+        <SpinnerContainer>
+          <LoadingSpinner />
+        </SpinnerContainer>
       )}
       {!isLoading && foodList.length > 0 && <Pagination currentPage={currentPage} setCurrentPage={setCurrentPage} totalPages={totalPages} />}
     </Container>
