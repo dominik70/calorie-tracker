@@ -5,7 +5,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="theme-color" content="#272343" />
-  <meta name="description" content="Track your calorie intake" />
+  <meta name="description" content="App for tracking your calories intake" />
   <link rel="manifest" href="manifest.json">
   <link rel="apple-touch-icon" href="./img/logo192.png" />
   <link rel="icon" href="./img/favicon.ico" />
@@ -15,6 +15,13 @@
 <body>
   <noscript>You need to enable JavaScript to run this app.</noscript>
   <div id="root"></div>
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('./serviceWorker.js')
+      })
+    }
+  </script>
 </body>
 
 </html>
