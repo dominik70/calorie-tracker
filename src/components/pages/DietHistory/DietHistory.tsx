@@ -8,9 +8,11 @@ import { MEAL_NAMES } from '../../../utils/constants';
 import { useFood } from '../../../context/FoodContext';
 import { Link } from 'react-router-dom';
 import { LoadingSpinner } from '../../atoms/LoadingSpinner/LoadingSpinner';
+import { useDailyGoal } from '../../../context/DailyGoalContext';
 
 export const DietHistory = () => {
   const { foodList, isLoading, deleteAllFood } = useFood();
+  const { dailyGoal } = useDailyGoal();
 
   return (
     <Container>
@@ -19,6 +21,12 @@ export const DietHistory = () => {
       {!isLoading && foodList ? (
         <>
           <h3>Calories and nutrients intake:</h3>
+          <NutrientsSum dailyGoal={dailyGoal} foodList={foodList} hasShortNames={false} />
+          {!dailyGoal && (
+            <Info>
+              You can set your daily nutrients goal <Link to='/profile'>here</Link>.
+            </Info>
+          )}
           {MEAL_NAMES.map((mealName) => foodList.filter((food) => food.mealName === mealName)).map((list, i) => (
             <Meal key={MEAL_NAMES[i]} mealName={MEAL_NAMES[i]} foodList={list} />
           ))}

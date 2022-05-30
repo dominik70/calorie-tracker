@@ -17,7 +17,7 @@ export const theme = {
   },
   media: {
     small: '600px',
-    medium: '950px',
+    medium: '960px',
     large: '1200px',
   },
 };

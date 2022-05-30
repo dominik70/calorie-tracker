@@ -68,8 +68,8 @@ export const SubContainer = styled.div`
 
 export const LoggedUser = styled.p`
   @media (min-width: ${({ theme }) => theme.media.medium}) {
-    max-width: 80px;
-    margin-left: 15px;
+    max-width: 150px;
+    margin-left: 10px;
     word-wrap: break-word;
   }
 `;

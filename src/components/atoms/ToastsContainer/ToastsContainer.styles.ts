@@ -9,7 +9,7 @@ export const StyledToastContainer = styled(ToastContainer)`
   }
 
   .Toastify__toast-body {
-    &:first-letter {
+    div:first-letter {
       text-transform: uppercase;
     }
   }

@@ -27,7 +27,7 @@ export const MealCard = ({ food }: Props) => {
     const newQuantity = quantityRef.current?.value && parseInt(quantityRef.current?.value);
 
     if (newQuantity === food.quantity) {
-      toast.info('food is already set', { toastId: 'different-quantity' });
+      toast.info('You entered same quantity', { toastId: 'different-quantity' });
     } else if (newQuantity && newQuantity < QUANTITY.max && newQuantity > QUANTITY.min) {
       setIsLoading(true);
       updateFood(food.id, newQuantity, () => setIsLoading(false));
