@@ -14,6 +14,7 @@ import { DateProvider } from './context/DateContext';
 import { ToastsContainer } from './components/atoms/ToastsContainer/ToastsContainer';
 import { DailyGoalProvider } from './context/DailyGoalContext';
 import { Profile } from './components/pages/Profile/Profile';
+import { NotFound } from './components/pages/NotFound/NotFound';
 import { PrivateRoute } from './components/atoms/PrivateRoute/PrivateRoute';
 
 export const App = () => {
@@ -27,6 +28,7 @@ export const App = () => {
               <DailyGoalProvider>
                 <Nav />
                 <Routes>
+                  <Route path='*' element={<NotFound />} />
                   <Route path='/' element={<Home />} />
                   <Route path='/search' element={<Search />} />
                   <Route path='/sign-in' element={<SignIn />} />
